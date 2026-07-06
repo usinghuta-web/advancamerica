@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advance America-About Us</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+</head>
+<body>
+
+<div class="top-bar">
+    Getting a loan is fast and easy
+</div>
+
+<header class="header">
+    <div class="container nav">
+        <div class="logo">
+            <img src="assets/images/logo.svg" alt="Logo">
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html" class="active">ABOUT US</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="apply.html">APPLY NOW</a>
+        </nav>
+    </div>
+</header>
+
+<section class="about-section">
+    <div class="container">
+
+        <h1 class="section-title">Photo Gallery</h1>
+        <div class="divider"></div>
+
+        <!-- Main Image -->
+        <div class="gallery-main">
+            <img id="mainImage" src="assets/images/gallery1.jpg" alt="">
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="gallery-thumbs">
+            <img src="assets/images/gallery1.jpg" onclick="changeImage(this)" class="active">
+            <img src="assets/images/gallery2.jpg" onclick="changeImage(this)">
+            <img src="assets/images/gallery3.jpg" onclick="changeImage(this)">
+            <img src="assets/images/gallery4.jpg" onclick="changeImage(this)">
+            <img src="assets/images/gallery5.jpg" onclick="changeImage(this)">
+            <img src="assets/images/gallery6.jpg" onclick="changeImage(this)">
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    Copyright © 2026 Advance America - All Rights Reserved.
+</footer>
+
+<script>
+function changeImage(element){
+    document.getElementById("mainImage").src = element.src;
+
+    document.querySelectorAll(".gallery-thumbs img").forEach(img=>{
+        img.classList.remove("active");
+    });
+
+    element.classList.add("active");
+}
+</script>
+
+</body>
+</html>

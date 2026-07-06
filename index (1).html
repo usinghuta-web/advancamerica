@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advance America-Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+
+</head>
+<body>
+
+<!-- Top Blue Bar -->
+<div class="top-bar">
+    Getting a loan is fast and easy
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="container nav">
+        <div class="logo">
+            <img src="assets/images/logo.svg" alt="Logo">
+        </div>
+
+        <nav>
+            <a href="index.html" class="active">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="apply.html">APPLY NOW</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-wrapper">
+    <div class="hero">
+
+        <div class="hero-slides">
+            <img src="assets/images/hero1.jpg" class="slide active">
+            <img src="assets/images/hero2.jpg" class="slide">
+            <img src="assets/images/hero3.jpg" class="slide">
+            <img src="assets/images/hero4.jpg" class="slide">
+            <img src="assets/images/hero5.jpg" class="slide">
+            <img src="assets/images/hero6.jpg" class="slide">
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <a href="apply.html" class="btn-primary">APPLY NOW</a>
+        </div>
+
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="content-section">
+    <div class="container">
+        <h1 class="section-title">What is a Payday Loan?</h1>
+        <div class="divider"></div>
+
+        <div class="content-grid">
+            <div>
+                <img src="assets/images/content.jpg" alt="">
+            </div>
+
+            <div class="content-text">
+                <h3>Advance America Loans</h3>
+                <p>A Payday Loan is a short-term, small-dollar loan (usually for a few hundred dollars) that you typically pay back within two to four weeks. This type of Cash Advance loan gives you access to money when you need it, so you can cover daily finances or unexpected life and emergency expenses.</p>
+
+                <h3>Benefits of Cash Advances</h3>
+                <p>Unlike some personal loan lenders and traditional banks, Advance America considers factors in addition to your credit score when deciding whether to approve you, like your income, employment history, and current debts.</p>
+
+                <h3>What is a Cash Advance and how does it work?</h3>
+                <p>A Cash Advance is a fast and convenient way to get money on the spot when you need it most. This type of short-term loan is available in small dollar amounts that you pay back in full on your next payday.</p>
+
+                <h3>Easy application</h3>
+                <p>Cash Advances come with easy applications that you can complete in just a few minutes. Advance America lets you apply online.</p>
+
+                <h3>Quick approval</h3>
+                <p>Advance America offers an instant approval decision, so you may find out right away whether you’re approved for a loan.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="advantage">
+    <div class="container">
+        <h2>The Advance America advantage</h2>
+        <div class="divider"></div>
+    </div>
+</section>
+
+<footer>
+    Copyright © 2026 Advance America - All Rights Reserved.
+</footer>
+<script>
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+let current = 0;
+
+function showSlide(index){
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+}
+
+function nextSlide(){
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
+
+setInterval(nextSlide, 2000); // 2 seconds
+
+dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        current = index;
+        showSlide(current);
+    });
+});
+</script>
+
+</body>
+</html>

